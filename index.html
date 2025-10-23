@@ -2747,39 +2747,6 @@
     </div>
   </div>
 </div>
-
-<script>
-  // 悬浮按钮功能
-  document.getElementById('share-float-btn').addEventListener('click', function() {
-    document.getElementById('share-modal').style.display = 'flex';
-  });
-
-  function closeShareModal() {
-    document.getElementById('share-modal').style.display = 'none';
-  }
-
-  function copyShareUrl() {
-    const url = "https://radia-crackless-noncyclically.ngrok-free.dev";
-    navigator.clipboard.writeText(url).then(function() {
-      alert('✅ 链接已复制！');
-      closeShareModal();
-    }).catch(function() {
-      const textArea = document.createElement('textarea');
-      textArea.value = url;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      alert('✅ 链接已复制！');
-      closeShareModal();
-    });
-  }
-
-  function shareToWechat() {
-    const url = "https://radia-crackless-noncyclically.ngrok-free.dev";
-    alert('📱 微信分享：\n\n复制以下链接发送给好友：\n' + url);
-    closeShareModal();
-  }
-</script>
 </body>
 </html>
+
