@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>傲拓科技有限公司 - 产品报价表</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1a6bb3;
+      --primary-dark: #0d4d8c;
+      --success-color: #28a745;
+      --warning-color: #f39c12;
+      --danger-color: #dc3545;
+      --light-color: #f8f9fa;
+      --dark-color: #343a40;
+      --gray-color: #6c757d;
+      --border-color: #e1e5eb;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Microsoft YaHei', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      transform: rotate(30deg);
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .contact-info {
+      font-size: 16px;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px 20px;
+      border-radius: 8px;
+      display: inline-block;
+      backdrop-filter: blur(5px);
+      position: relative;
+    }
+
+    .controls {
+      padding: 20px;
+      background: #f0f4f8;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      gap: 15px;
+    }
+
+    .search-box {
+      display: flex;
+      flex: 1;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 12px 20px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 15px;
+      transition: var(--transition);
+      padding-left: 45px;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(26, 107, 179, 0.2);
+      outline: none;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-color);
+    }
+
+    .search-box button {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-left: 10px;
+      font-weight: 500;
+    }
+
+    .search-box button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(13, 77, 140, 0.3);
+    }
+
+    .filter-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    select {
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: white;
+      font-size: 15px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    select:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(26, 107, 179, 0.2);
+      outline: none;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(13, 77, 140, 0.3);
+    }
+
+    .btn-success {
+      background: var(--success-color);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #218838;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+    }
+
+    /* 表格样式 */
+    .table-wrapper {
+      overflow-x: auto;
+      width: 100%;
+      padding: 0 20px 20px;
+      position: relative;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: auto;
+      text-align: center;
+    }
+
+    th, td {
+      padding: 15px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: middle;
+      word-break: break-word;
+    }
+
+    th {
+      background: #f0f4f8;
+      padding: 18px 15px;
+      text-align: center;
+      font-weight: 600;
+      color: var(--dark-color);
+      border-bottom: 2px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    th:hover {
+      background: #e1e8f0;
+    }
+
+    th.sort-asc::after {
+      content: " ↑";
+      font-weight: bold;
+    }
+
+    th.sort-desc::after {
+      content: " ↓";
+      font-weight: bold;
+    }
+
+    tr {
+      transition: var(--transition);
+    }
+
+    tr:hover {
+      background: #f8fafc;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    /* 产品系列标签样式 */
+    .product-series {
+      font-weight: 600;
+    }
+
+    .product-model {
+      font-weight: 500;
+    }
+
+    .price {
+      font-weight: 600;
+      color: var(--danger-color);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+
+    .tag-magnetic {
+      background: #e8f4fd;
+      color: var(--primary-color);
+    }
+
+    .tag-desktop {
+      background: #e8f6f3;
+      color: var(--success-color);
+    }
+
+    .tag-car {
+      background: #fef9e7;
+      color: var(--warning-color);
+    }
+
+    .tag-disc {
+      background: #f4ecf7;
+      color: #8e44ad;
+    }
+
+    /* 参数详情展开区域 */
+    .params-toggle {
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin: 5px 0;
+      transition: var(--transition);
+    }
+
+    .params-toggle:hover {
+      color: var(--primary-dark);
+    }
+
+    .params-details {
+      display: none;
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 10px;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .params-details.active {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; max-height: 0; }
+      to { opacity: 1; max-height: 500px; }
+    }
+
+    .params-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+    }
+
+    .param-group {
+      background: white;
+      border-radius: 6px;
+      padding: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .param-group h4 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .param-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+    }
+
+    .param-item:last-child {
+      border-bottom: none;
+    }
+
+    .param-name {
+      color: var(--gray-color);
+      flex: 1;
+    }
+
+    .param-value {
+      color: var(--dark-color);
+      font-weight: 500;
+      flex: 1;
+      text-align: right;
+    }
+
+    /* 图片容器样式 */
+    .image-container {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-preview {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .image-preview:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .image-caption {
+      font-size: 12px;
+      color: var(--gray-color);
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    /* 模态框样式 */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      margin-top: 2%;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-title {
+      color: #f1f1f1;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 18px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close:hover {
+      color: #bbb;
+      transform: scale(1.1);
+    }
+
+    /* 备注区域样式 */
+    .note {
+      background: #fff9e6;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px;
+      border-left: 4px solid var(--warning-color);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .note h3 {
+      color: #e67e22;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .note p {
+      margin-bottom: 10px;
+    }
+
+    /* 页脚样式 */
+    footer {
+      padding: 25px;
+      text-align: center;
+      background: #f0f4f8;
+      color: var(--gray-color);
+      font-size: 15px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 1200px) {
+      .container {
+        border-radius: 0;
+      }
+
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box {
+        max-width: 100%;
+      }
+
+      .filter-controls, .action-buttons {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .image-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .params-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      header {
+        padding: 20px 15px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .contact-info {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+
+      .table-wrapper {
+        padding: 0 10px 10px;
+      }
+
+      th, td {
+        padding: 10px 8px;
+        font-size: 14px;
+      }
+
+      .image-preview {
+        width: 60px;
+        height: 60px;
+      }
+
+      .btn {
+        padding: 10px 15px;
+        font-size: 14px;
+      }
+    }
+
+    /* 空状态样式 */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--gray-color);
+    }
+
+    .empty-state i {
+      font-size: 48px;
+      margin-bottom: 15px;
+      opacity: 0.5;
+    }
+
+    .empty-state h3 {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    /* 筛选结果提示 */
+    .filter-info {
+      padding: 10px 20px;
+      background: #e8f4fd;
+      border-left: 4px solid var(--primary-color);
+      margin: 0 20px 10px;
+      font-size: 14px;
+      color: var(--primary-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .filter-info .clear-filters {
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1><i class="fas fa-bolt"></i> 深圳市傲拓科技有限公司</h1>
+    <div class="subtitle">自主研发 · 生产 · 销售 · 服务于一体的无线充电产品专业制造商</div>
+    <div class="contact-info">
+      <strong><i class="fas fa-map-marker-alt"></i> 工厂地址：</strong>深圳市龙岗区华南城二号交易馆3F097 &nbsp; | &nbsp;
+      <strong><i class="fas fa-user"></i> 联系人：</strong>李生 18665393568
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="search-box">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="searchInput" placeholder="搜索产品型号、名称或特性...">
+      <button id="searchBtn">搜索</button>
+    </div>
+
+    <div class="filter-controls">
+      <select id="seriesFilter">
+        <option value="">所有系列</option>
+        <option value="磁吸无线充">磁吸无线充系列</option>
+        <option value="桌面无线充">桌面无线充系列</option>
+        <option value="车载无线充">车载无线充系列</option>
+        <option value="圆盘无线充">圆盘无线充系列</option>
+      </select>
+
+      <select id="priceFilter">
+        <option value="">所有价格</option>
+        <option value="0-10">0-10元</option>
+        <option value="10-20">10-20元</option>
+        <option value="20-50">20-50元</option>
+        <option value="50-100">50-100元</option>
+        <option value="100+">100元以上</option>
+      </select>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn btn-primary" id="resetBtn">
+        <i class="fas fa-redo"></i>
+        重置筛选
+      </button>
+      <button class="btn btn-success" id="downloadBtn">
+        <i class="fas fa-file-excel"></i>
+        下载Excel
+      </button>
+      <button class="btn btn-primary" id="saveDataBtn">
+        <i class="fas fa-save"></i>
+        保存数据
+      </button>
+    </div>
+  </div>
+
+  <!-- 筛选信息提示 -->
+  <div id="filterInfo" class="filter-info" style="display: none;">
+    <span id="filterText"></span>
+    <button class="clear-filters" id="clearFiltersBtn">清除筛选</button>
+  </div>
+
+  <div class="note">
+    <h3><i class="fas fa-sticky-note"></i> 备注说明</h3>
+    <p>1. 表格价格是不含税不含LOGO，不含认证的中性常规价格，中性包装盒，中性卡通箱及产品中性丝印或无丝印，只能根据我公司现货出,不做任何更改。</p>
+    <p>2. 因芯片及电容等材料价格随时变动，价格仅供参考，详细数据及报价根据业务详细报价为准。</p>
+    <p>3、定制LOGO（小批量订制生产+合理损耗）： 丝印单色或镭雕+0.5元，套色加一个色+0.2元，版费100元/个）</p>
+    <p>4、彩印： 2元/1000PCS以下，1.5元/1000-5000pcs之间，1元/5000pcs以上。</p>
+    <p>5、定制包装盒：开机费1000元÷平摊数量（只改设计，不改材质、尺寸、吸塑、卡通箱）定制挂勾，定制工艺烫金烫银专色等另议。</p>
+    <p>6、定制卡通箱或者特殊包装：400元版费÷平摊数量（不改材质和尺寸，只改设计）。A4牛皮纸贴客户唛头免费。定制非标准卡通箱另议。预计400元版费+0.3元左右/pcs</p>
+    <p>7、贴标：一个标+0.1元。</p>
+    <p>8、认证：Qi,KC,FCC-ID,EMI（客户出认证费用，我司提供能过认证的合格产品，配合实验室整改）过QI BPP 加6元，EPP 加8元。</p>
+  </div>
+
+  <!-- 表格容器 -->
+  <div class="table-wrapper">
+    <div class="table-container">
+      <table id="productTable">
+        <thead>
+        <tr>
+          <th data-sort="series">产品系列</th>
+          <th data-sort="model">产品型号</th>
+          <th data-sort="interface">接口类型</th>
+          <th data-sort="input">输入参数</th>
+          <th data-sort="output">输出功率</th>
+          <th data-sort="price">价格(元)</th>
+          <th>详细参数</th>
+          <th>包装图 & 产品示例图</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+        <!-- 表格内容将通过JavaScript动态生成 -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 图片预览模态框 -->
+  <div id="imageModal" class="image-modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="modalTitle" class="modal-title"></div>
+  </div>
+
+  <footer>
+    <p>© 2023 深圳市傲拓科技有限公司 | 诚招代理 · 承接OEM,ODM订单</p>
+  </footer>
+</div>
+
+<script>
+  // 产品数据 - 这里只展示部分数据作为示例
+  // 完整的产品数据
+  const products = [
+    // 磁吸无线充系列
+    {
+      series: "磁吸无线充",
+      model: "M8",
+      name: "磁吸无线充电器",
+      interface: "Type-C",
+      input: "5V/3A，9V/1.67A",
+      output: "5W/7.5W/10W/15W",
+      price: 6.8,
+      features: "磁吸充电，充电距离≤6mm，铝合金外壳",
+      packageImage: "img/M8-package.jpg",
+      productImage: "img/M8.jpg",
+      parameters: {
+        "技术规格": {
+          "接口": "Type-C",
+          "输入电压/电流": "5V/3A，9V/1.67A",
+          "输出功率": "5W/7.5W/10W/15W",
+          "充电距离": "≤6mm",
+          "线材长度": "1.07m",
+          "线材规格": "5芯 110支",
+          "芯片": "MCU西安恩狄",
+          "磁铁": "N50"
+        },
+        "物理特性": {
+          "充电器尺寸": "Ø56*5.7(mm)",
+          "外壳材质": "铝合金",
+          "整套重量": "三段磁45g，四段磁50g"
+        },
+        "包装信息": {
+          "包装尺寸": "46.5*34.5*26.5(cm)",
+          "装箱数量": "300/箱",
+          "毛重": "3段磁14.5kg，4段磁15.5kg"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "磁吸二合一",
+      name: "磁吸二合一无线充电器",
+      interface: "-",
+      input: "5V/2A，9V/2A",
+      output: "9V/1.5A",
+      price: 17,
+      features: "折叠设计，多设备兼容，硅胶+PC材质",
+      packageImage: "img/cx2in1-package.jpg",
+      productImage: "img/cx2in1.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "快充输入": "5V 2A，9V 2A",
+          "快充输出": "9V 1.5A",
+          "传输距离": "≤8mm",
+          "充电效率": "≥76%"
+        },
+        "物理特性": {
+          "产品材质": "硅胶+PC",
+          "产品尺寸": "16.4*7.7*0.9cm(展开) 8*7.7*1.9cm(合起)",
+          "产品净重": "87g",
+          "产品毛重": "131g",
+          "颜色": "黑色、白色、蓝色、粉色"
+        },
+        "包装信息": {
+          "包装尺寸": "11.4*10.4*2.8cm",
+          "外箱尺寸": "53.5*30*24.8cm",
+          "装箱数量": "50PCS",
+          "装箱重量": "14.2KG",
+          "产品标配": "无线充电器+精美包装+说明书"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "W07",
+      name: "磁吸三合一无线充电器",
+      interface: "-",
+      input: "5V/2A，9V/2A",
+      output: "9V/1.5A",
+      price: 19,
+      features: "三设备同时充电，符合QI协议",
+      packageImage: "img/W07-package.jpg",
+      productImage: "img/W07.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "快充输入": "5V 2A，9V 2A",
+          "快充输出": "9V 1.5A",
+          "传输距离": "≤8mm",
+          "充电效率": "≥76%"
+        },
+        "物理特性": {
+          "产品材质": "硅胶+PC",
+          "产品尺寸": "16.4*7.7*0.9cm(展开) 8*7.7*1.9cm(合起)",
+          "产品净重": "87g",
+          "产品毛重": "131g",
+          "颜色": "黑色、白色、蓝色、粉色"
+        },
+        "包装信息": {
+          "包装尺寸": "11.4*10.4*2.8cm",
+          "外箱尺寸": "53.5*30*24.8cm",
+          "装箱数量": "50PCS",
+          "装箱重量": "14.2KG",
+          "产品标配": "无线充电器+精美包装+说明书"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "I14",
+      name: "磁吸无线充电器",
+      interface: "Type-C USB-C",
+      input: "5V/3A，9V/1.67A",
+      output: "5W/7.5W/10W/15W",
+      price: 9.5,
+      features: "强磁吸附，高效充电，白色/黑色可选",
+      packageImage: "img/I14-package.jpg",
+      productImage: "img/I14.jpg",
+      parameters: {
+        "技术规格": {
+          "接口": "Type-C USB-C",
+          "输入电压/电流": "5V/3A，9V/1.67A",
+          "输出功率": "5W/7.5W/10W/15W",
+          "充电距离": "≤6mm",
+          "线材长度": "1.07m",
+          "线材规格": "5芯 110支",
+          "芯片": "MCU西安恩狄",
+          "磁铁": "N50"
+        },
+        "物理特性": {
+          "充电器尺寸": "Ø56*5.7(mm)",
+          "外壳材质": "铝合金",
+          "整套重量": "三段磁45g，四段磁50g",
+          "颜色": "白色/黑色"
+        },
+        "包装信息": {
+          "包装尺寸": "46.5*34.5*26.5(cm)",
+          "装箱数量": "300/箱"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "I13",
+      name: "磁吸无线充电器",
+      interface: "Type-C USB-C",
+      input: "5V/3A，9V/1.67A",
+      output: "5W/7.5W/10W/15W",
+      price: 9,
+      features: "经济款磁吸充电，铝合金外壳",
+      packageImage: "img/I13-package.jpg",
+      productImage: "img/I13.jpg",
+      parameters: {
+        "技术规格": {
+          "接口": "Type-C USB-C",
+          "输入电压/电流": "5V/3A，9V/1.67A",
+          "输出功率": "5W/7.5W/10W/15W",
+          "充电距离": "≤6mm",
+          "线材长度": "1.07m",
+          "线材规格": "5芯 110支",
+          "芯片": "MCU西安恩狄",
+          "磁铁": "N50"
+        },
+        "物理特性": {
+          "充电器尺寸": "Ø56*5.7(mm)",
+          "外壳材质": "铝合金",
+          "整套重量": "三段磁45g，四段磁50g",
+          "颜色": "白色/黑色"
+        },
+        "包装信息": {
+          "包装尺寸": "46.5*34.5*26.5(cm)",
+          "装箱数量": "300/箱"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "S30",
+      name: "三合一无线充",
+      interface: "TYPE-C",
+      input: "-",
+      output: "5W/7.5W/10W/15W",
+      price: 26,
+      features: "手机+耳机+手表三充，布革/布艺+PC+ABS材质",
+      packageImage: "img/S30-package.jpg",
+      productImage: "img/S30.jpg",
+      parameters: {
+        "技术规格": {
+          "芯片方案": "TN",
+          "接口": "TYPE-C",
+          "手机输出功率": "5W/7.5W/10W/15W",
+          "耳机输出功率": "5W(Max)",
+          "手表USB输出功率": "2.5W(Max)",
+          "充电频率": "110k~210k",
+          "充电距离": "3-5mm",
+          "充电效率": "82%"
+        },
+        "物理特性": {
+          "材质": "布革/布艺+PC+ABS",
+          "可选颜色": "黑色、白色、橙色",
+          "产品重量": "裸机107g"
+        },
+        "包装信息": {
+          "装箱数量": "100PCS",
+          "装箱重量": "14.8KG",
+          "装箱尺寸": "51.5X34.5X26.5CM",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+中英正反说明书"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "CW140",
+      name: "磁吸无线充电器",
+      interface: "USB-A USB-C",
+      input: "5V/3A，9V/1.67A",
+      output: "5W/7.5W/10W/15W",
+      price: 15,
+      features: "PD 15W快充，铝合金/ABS外壳",
+      packageImage: "img/CW140-package.jpg",
+      productImage: "img/CW140.jpg",
+      parameters: {
+        "技术规格": {
+          "接口": "USB-A USB-C",
+          "输入电压/电流": "5V/3A，9V/1.67A",
+          "输出功率": "5W/7.5W/10W/15W",
+          "充电距离": "≤6mm",
+          "线材长度": "1.07m",
+          "线材规格": "5芯 110支",
+          "芯片": "PD 15W",
+          "磁铁": "N50"
+        },
+        "物理特性": {
+          "充电器尺寸": "Ø56*5.7(mm)",
+          "外壳材质": "铝合金/ABS",
+          "整套重量": "36g",
+          "产品尺寸": "42*42*2mm"
+        },
+        "包装信息": {
+          "装箱数量": "300/箱"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "CW120",
+      name: "磁吸无线充电器",
+      interface: "USB-A USB-C",
+      input: "5V/3A，9V/1.67A",
+      output: "5W/7.5W/10W/15W",
+      price: 15,
+      features: "PD 15W快充，三磁设计，白色/黑色可选",
+      packageImage: "img/CW120-package.jpg",
+      productImage: "img/CW120.jpg",
+      parameters: {
+        "技术规格": {
+          "接口": "USB-A USB-C",
+          "输入电压/电流": "5V/3A，9V/1.67A",
+          "输出功率": "5W/7.5W/10W/15W",
+          "充电距离": "≤6mm",
+          "线材长度": "1.06m",
+          "线材规格": "5芯 110支",
+          "芯片": "PD 15W",
+          "磁铁": "三磁"
+        },
+        "物理特性": {
+          "充电器尺寸": "Ø56*5.7(mm)",
+          "外壳材质": "铝合金",
+          "产品重量": "36g",
+          "产品尺寸": "42*42*2mm",
+          "颜色": "白色/黑色"
+        },
+        "包装信息": {
+          "装箱数量": "300/箱"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "CW130",
+      name: "磁吸无线充电器",
+      interface: "USB-A USB-C",
+      input: "5V/3A，9V/1.67A",
+      output: "5W/7.5W/10W/15W",
+      price: 15,
+      features: "三磁设计，ABS材料+铝合金外壳",
+      packageImage: "img/CW130-package.jpg",
+      productImage: "img/CW130.jpg",
+      parameters: {
+        "技术规格": {
+          "接口": "USB-A USB-C",
+          "输入电压/电流": "5V/3A，9V/1.67A",
+          "输出功率": "5W/7.5W/10W/15W",
+          "充电距离": "≤6mm",
+          "线材长度": "1.06m",
+          "线材规格": "5芯 110支",
+          "芯片": "三磁",
+          "磁铁": "N50"
+        },
+        "物理特性": {
+          "充电器尺寸": "Ø56*5.7(mm)",
+          "外壳材质": "ABS材料+铝合金",
+          "产品重量": "37g",
+          "产品尺寸": "42*42*2mm",
+          "颜色": "白色/黑色"
+        },
+        "包装信息": {
+          "装箱数量": "300/箱"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "CW150",
+      name: "磁吸无线充电器",
+      interface: "USB-A USB-C",
+      input: "5V/3A，9V/1.67A",
+      output: "5W/7.5W/10W/15W",
+      price: 15,
+      features: "三磁设计，ABS材料外壳",
+      packageImage: "img/CW150-package.jpg",
+      productImage: "img/CW150.jpg",
+      parameters: {
+        "技术规格": {
+          "接口": "USB-A USB-C",
+          "输入电压/电流": "5V/3A，9V/1.67A",
+          "输出功率": "5W/7.5W/10W/15W",
+          "充电距离": "≤6mm",
+          "线材长度": "1.06m",
+          "线材规格": "5芯 110支",
+          "芯片": "三磁",
+          "磁铁": "N50"
+        },
+        "物理特性": {
+          "充电器尺寸": "Ø56*5.7(mm)",
+          "外壳材质": "ABS材料",
+          "产品重量": "37g",
+          "产品尺寸": "42*42*2mm",
+          "颜色": "白色/黑色"
+        },
+        "包装信息": {
+          "装箱数量": "300/箱"
+        }
+      }
+    },
+    {
+      series: "磁吸无线充",
+      model: "M9",
+      name: "磁吸无线充电器",
+      interface: "USB-C",
+      input: "5V/2A，9V/1.67A",
+      output: "15W",
+      price: 18,
+      features: "三磁设计，ABS材料外壳，白色/黑色可选",
+      packageImage: "img/M9-package.jpg",
+      productImage: "img/M9.jpg",
+      parameters: {
+        "技术规格": {
+          "接口": "USB-C",
+          "输入电压/电流": "5V/2A，9V/1.67A",
+          "输出功率": "15W",
+          "充电距离": "≤6mm",
+          "芯片": "三磁",
+          "磁铁": "N50"
+        },
+        "物理特性": {
+          "充电器尺寸": "Ø56*5.7(mm)",
+          "外壳材质": "ABS材料",
+          "产品重量": "33g",
+          "产品尺寸": "9*7.5*2.5cm",
+          "颜色": "白色/黑色"
+        }
+      }
+    },
+
+    // 桌面无线充系列
+    {
+      series: "桌面无线充",
+      model: "Q740",
+      name: "无线充电器",
+      interface: "USB-C",
+      input: "9V/2A/15W",
+      output: "-",
+      price: 10.5,
+      features: "简约桌面设计，ABS材质，黑色/白色可选",
+      packageImage: "img/Q740-package.jpg",
+      productImage: "img/Q740.jpg",
+      parameters: {
+        "技术规格": {
+          "输入电流": "9V/2A/15W",
+          "功率": "≥76%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "产品颜色": "黑色、白色",
+          "产品尺寸": "205*80*95mm",
+          "产品重量": "145.4g"
+        },
+        "包装信息": {
+          "彩盒尺寸": "210*100*100mm",
+          "装箱数量": "50PCS/一箱",
+          "装箱尺寸": "460*440*530mm",
+          "装箱毛重": "13.5KG"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "X455",
+      name: "三合一无线充电器",
+      interface: "USB-C",
+      input: "5V/3A，9V/2A，12V/1.5A",
+      output: "15W/10W/7.5W/5W",
+      price: 18,
+      features: "多设备充电底座，ABS+橡胶油材质",
+      packageImage: "img/X455-package.jpg",
+      productImage: "img/X455.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入电压/电流": "5V/3A 9V/2A 12V/1.5A",
+          "发射功率": "15W/10W/7.5W/5W (手机) 3W(手表) 2W(耳机)",
+          "传输距离": "≤8mm",
+          "充电效率": "≥76%"
+        },
+        "物理特性": {
+          "产品材质": "ABS+橡胶油",
+          "产品颜色": "黑色、白色",
+          "产品尺寸": "175*165*16mm",
+          "产品净重": "171g",
+          "产品毛重": "253g"
+        },
+        "包装信息": {
+          "彩盒尺寸": "180*170*20mm",
+          "外箱尺寸": "500*490*325mm",
+          "装箱数量": "40PCS",
+          "装箱重量": "12KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "WJ002",
+      name: "无线充直播精灵",
+      interface: "-",
+      input: "9V/2A，12V/1.67A",
+      output: "15W",
+      price: 160,
+      features: "直播专用，多功能集成，PC+ABC材质",
+      packageImage: "img/WJ002-package.jpg",
+      productImage: "img/WJ002.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "9V/2A、12V/1.67A",
+          "输出": "15W",
+          "传输距离": "≤8mm",
+          "充电效率": "≥76%"
+        },
+        "物理特性": {
+          "产品材质": "PC+ABC",
+          "产品颜色": "白蓝色",
+          "产品尺寸": "113*74mm",
+          "产品净重": "373g",
+          "带包装重量": "595.6g"
+        },
+        "包装信息": {
+          "包装尺寸": "179*83*106mm",
+          "外箱尺寸": "460*440*530mm",
+          "装箱数量": "50PCS",
+          "装箱重量": "13.5KG",
+          "产品标配": "无线充+包装+充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "ZD740",
+      name: "折叠三合一",
+      interface: "TYPE-C",
+      input: "5V/3A，9V/2A",
+      output: "5W/7.5W/10W/15W",
+      price: 12,
+      features: "折叠设计，桌面型，ABS材质",
+      packageImage: "img/ZD740-package.jpg",
+      productImage: "img/ZD740.jpg",
+      parameters: {
+        "技术规格": {
+          "芯片方案": "HT1606+MOS",
+          "接口": "TYPE-C",
+          "输出功率": "5W/7.5W/10W/15W",
+          "输入电压/电流": "5V 3A 9V 2A",
+          "充电频率": "110k~210k",
+          "充电距离": "3-5mm",
+          "充电效率": "75%"
+        },
+        "物理特性": {
+          "款式": "桌面型",
+          "材质": "ABS",
+          "可选颜色": "黑色、白色",
+          "产品重量": "裸机100g 带包装150g"
+        },
+        "包装信息": {
+          "箱规": "54*34*34CM(100台/箱15KG)"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "N61",
+      name: "折叠台灯无线充",
+      interface: "-",
+      input: "9V/2A",
+      output: "5W-7.5W-10W-15W",
+      price: 60,
+      features: "台灯+无线充二合一，折叠设计，多色温灯光",
+      packageImage: "img/N61-package.jpg",
+      productImage: "img/N61.jpg",
+      parameters: {
+        "技术规格": {
+          "输入电压": "9V2A",
+          "无线输出": "5W-7.5W-10W-15W Airpods输出:3W",
+          "LDE输出": "5W",
+          "USB输出": "5V1A",
+          "传输距离": "2-6mm",
+          "充电效率": "75%",
+          "工作频率": "100-205KHZ"
+        },
+        "物理特性": {
+          "颜色": "黑色、白色",
+          "灯光颜色": "白色、暖色、暖白色",
+          "净重": "300g",
+          "毛重": "395g",
+          "产品尺寸": "106*60*277mm"
+        },
+        "包装信息": {
+          "外箱尺寸": "56*35.5*35cm",
+          "装箱数量": "30pcs",
+          "装箱重量": "12.8KG"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "S600",
+      name: "三合一无线充",
+      interface: "TYPE-C",
+      input: "9V/2A，5V/3A",
+      output: "15W(Max)",
+      price: 21,
+      features: "手机+手表+耳机三充，ABS材质",
+      packageImage: "img/S600-package.jpg",
+      productImage: "img/S600.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "Qi标准",
+          "接口": "TYPE-C",
+          "手机输出功率": "15W(Max)",
+          "手表输出功率": "2.5W(Max)",
+          "耳机盒输出功率": "2.5W(Max)",
+          "输入电压/电流": "9V-2A/5V-3A",
+          "充电频率": "110-205 KHz",
+          "充电距离": "3~10mm",
+          "充电效率": "≥75%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "可选颜色": "白色、黑色",
+          "产品毛重": "223.2g",
+          "产品裸机": "141.3g"
+        },
+        "包装信息": {
+          "包装尺寸": "198*116*85mm",
+          "装箱": "50个",
+          "装箱重量": "12.16kg",
+          "装箱规格": "605*415*440mm"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "K88",
+      name: "三合一无线充",
+      interface: "TYPE-C",
+      input: "9V/2A，5V/3A",
+      output: "15W(Max)",
+      price: 45,
+      features: "高功率输出，ABS材质，白色/黑色可选",
+      packageImage: "img/K88-package.jpg",
+      productImage: "img/K88.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "Qi标准",
+          "接口": "TYPE-C",
+          "手机输出功率": "15W(Max)",
+          "手表输出功率": "3W(Max)",
+          "耳机盒输出功率": "5W(Max)",
+          "输入电压/电流": "9V-2A/5V-3A",
+          "充电频率": "110-205 KHz",
+          "充电距离": "3~10mm",
+          "充电效率": "≥75%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "可选颜色": "白色、黑色",
+          "产品毛重": "240g",
+          "产品裸机": "170g"
+        },
+        "包装信息": {
+          "包装尺寸": "17.8x15.5x2cm",
+          "装箱": "40个"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "Z29",
+      name: "磁吸三合一",
+      interface: "TYPE-C",
+      input: "9V/3A",
+      output: "15W(Max)",
+      price: 33,
+      features: "磁吸设计，塑胶材质，白色/黑色可选",
+      packageImage: "img/Z29-package.jpg",
+      productImage: "img/Z29.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "Qi标准",
+          "接口": "TYPE-C",
+          "手机输出功率": "15W(Max)",
+          "手表输出功率": "3W(Max)",
+          "耳机盒输出功率": "5W(Max)",
+          "输入电压/电流": "9V-3A",
+          "充电频率": "110-205 KHz",
+          "充电距离": "3~10mm",
+          "充电效率": "≥75%"
+        },
+        "物理特性": {
+          "材质": "塑胶",
+          "可选颜色": "白色、黑色",
+          "产品毛重": "240g",
+          "产品裸机": "130g",
+          "展开产品尺寸": "60x62x115mm"
+        },
+        "包装信息": {
+          "包装尺寸": "95x72x114mm"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "Z28",
+      name: "磁吸三合一",
+      interface: "type-c",
+      input: "9V/3A，12V/2A",
+      output: "5W/7.5W/10W/15W",
+      price: 31,
+      features: "需要搭配QC/PD充电头，环保ABS材质",
+      packageImage: "img/Z28-package.jpg",
+      productImage: "img/Z28.jpg",
+      parameters: {
+        "技术规格": {
+          "需要搭配": "QC协议3.0/4.0或PD/20W35W充电头使用",
+          "输入口": "type-c",
+          "充电保护": "过流，过压，异物感应等保护",
+          "输入电压": "9V/3A 12V/2A",
+          "输出功率": "磁吸手机5W/7.5W/10W/15W+手表发射3W+底座无线充耳机发射5W"
+        },
+        "物理特性": {
+          "材质": "环保ABS",
+          "产品重量": "裸机130g",
+          "全套": "175g",
+          "颜色": "支持激光定制LOGO"
+        },
+        "包装信息": {
+          "包装尺寸": "85x39x90mm",
+          "装箱参数": "100个/箱",
+          "装箱尺寸": "39x44x19.5cm",
+          "重量": "18.3Kg"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "B07",
+      name: "四合一多功能无线充",
+      interface: "-",
+      input: "9V/2A-3A",
+      output: "5W/7.5W/10W/15W",
+      price: 22,
+      features: "四设备充电，多颜色可选，自带线设计",
+      packageImage: "img/B07-package.jpg",
+      productImage: "img/B07.jpg",
+      parameters: {
+        "技术规格": {
+          "产品输入": "9V/2A-3A",
+          "座充输出": "5V-2A",
+          "无线输出": "5W/7.5W/10W/15W",
+          "耳机输出": "3W"
+        },
+        "物理特性": {
+          "产品颜色": "白色/黑色/玫瑰金/银色（量大支持颜色定制）",
+          "产品净重": "200g",
+          "产品毛重": "270g",
+          "产品尺寸": "230*90*60mm"
+        },
+        "包装信息": {
+          "包装尺寸": "245*109*58mm",
+          "装箱尺寸": "50.5*28.5*42.5cm",
+          "装箱重量": "12.5kg",
+          "装箱数量": "40/PCS",
+          "产品配置": "主机自带线+手表充支架（出货默认不带手表无线充）+说明书+中性彩盒包装"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "F187",
+      name: "三合一无线充电器",
+      interface: "-",
+      input: "5V/3A，9V/2A，12V/1.5A",
+      output: "15W/10W/7.5W/5W",
+      price: 19,
+      features: "多设备兼容，ABS+橡胶油材质",
+      packageImage: "img/F187-package.jpg",
+      productImage: "img/F187.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入电压/电流": "5V/3A9V/2A12V/1.5A",
+          "发射功率": "15W/10W/7.5W/5W (手机)(3W)手表(2W)耳机",
+          "传输距离": "≤8mm",
+          "充电效率": "≥76%"
+        },
+        "物理特性": {
+          "产品材质": "ABS+橡胶油",
+          "产品颜色": "黑色、白色",
+          "产品尺寸": "175*165*16mm",
+          "产品净重": "171g",
+          "产品毛重": "253g"
+        },
+        "包装信息": {
+          "彩盒尺寸": "180*170*20mm",
+          "外箱尺寸": "500*490*325mm",
+          "装箱数量": "40PCS",
+          "装箱重量": "12KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "P14",
+      name: "磁吸三合一",
+      interface: "Type-C",
+      input: "5V/2A，9V/2A，12V/2A",
+      output: "5W/7.5W/10W/15W",
+      price: 22,
+      features: "折叠设计，ABS过橡胶釉材质",
+      packageImage: "img/P14-package.jpg",
+      productImage: "img/P14.jpg",
+      parameters: {
+        "技术规格": {
+          "供电接口": "Type-C",
+          "输入参数": "5V/2A 9V/2A 12V/2A",
+          "输出参数": "5W/7.5W/10W/15W",
+          "输出Watch": "2.5W",
+          "输出earphone": "3W",
+          "线规": "C-C1米"
+        },
+        "物理特性": {
+          "产品尺寸": "平铺：229*76*13mm",
+          "折叠": "83*76*24mm",
+          "材质": "ABS过橡胶釉材质",
+          "净重": "115g",
+          "毛重": "215g"
+        },
+        "包装信息": {
+          "包装尺寸": "108*108*40mm",
+          "装箱尺寸": "38.5*33.5*23.5cm",
+          "箱装数量": "50PCS",
+          "箱装重量": "10kg",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+中英正反说明书"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "S8",
+      name: "磁吸三合一",
+      interface: "Type-C",
+      input: "9V/2A及以上",
+      output: "15W(Max)",
+      price: 75,
+      features: "ABS+钢化玻璃材质，银色外观",
+      packageImage: "img/S8-package.jpg",
+      productImage: "img/S8.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "Qi标准",
+          "接口": "TYpe-C",
+          "手机输出功率": "15W(Max)",
+          "手表输出功率": "2.5W",
+          "耳机盒输出功率": "2.5W",
+          "输入电压/电流": "9V-2A及以上",
+          "充电频率": "110-205 KHz",
+          "充电距离": "<10mm",
+          "充电效率": "<80%"
+        },
+        "物理特性": {
+          "材质": "ABS+钢化玻璃",
+          "可选颜色": "银色",
+          "产品毛重": "353g",
+          "产品裸机": "278g",
+          "产品尺寸": "66*66*105高mm"
+        },
+        "包装信息": {
+          "包装尺寸": "70*70*130mm",
+          "装箱重量": "18Kg",
+          "装箱规格": "50/375*375*280mm",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "W21",
+      name: "磁吸三合一",
+      interface: "-",
+      input: "9V/2A 18W",
+      output: "15W/10W/7.5W/5W",
+      price: 23,
+      features: "PC+塑胶材质，黑色/白色可选",
+      packageImage: "img/W21-package.jpg",
+      productImage: "img/W21.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入电压/电流": "9V/2A 18W",
+          "发射功率": "15W/10W/7.5W/5W (手机)(2.5)手表(5W)耳机",
+          "传输距离": "≤8mm",
+          "充电效率": "≥76%"
+        },
+        "物理特性": {
+          "产品材质": "PC+塑胶",
+          "产品颜色": "黑色、白色",
+          "产品尺寸": "166*134*20.4mm",
+          "产品净重": "163g",
+          "产品毛重": "218g"
+        },
+        "包装信息": {
+          "彩盒尺寸": "170*165*20mm",
+          "外箱尺寸": "500*490*325mm",
+          "装箱数量": "50PCS",
+          "装箱重量": "10.9KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "Z33",
+      name: "磁吸三合一",
+      interface: "Type-C",
+      input: "9V/3A，9V/2A",
+      output: "5W/7.5W/10W/15W",
+      price: 33,
+      features: "折叠设计，ABS材质，黑白两色",
+      packageImage: "img/Z33-package.jpg",
+      productImage: "img/Z33.jpg",
+      parameters: {
+        "技术规格": {
+          "输入口": "Type-C",
+          "充电保护": "过流保护，过压保护，异物感应保护等",
+          "输入电压": "9V3A 9V2A",
+          "输出功率": "磁吸手机 5W/7.5W/10W/15W；底座耳机5W；手表2W"
+        },
+        "物理特性": {
+          "产品展开尺寸": "101*66.5*107高mm",
+          "产品折叠尺寸": "99.5*66.5*32厚mm",
+          "裸机重量": "130g",
+          "总重量": "148g",
+          "颜色": "黑白",
+          "材质": "ABS"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "G63",
+      name: "无线充电器",
+      interface: "TYPE-C",
+      input: "-",
+      output: "15W",
+      price: 25,
+      features: "数显功能，QC3.0协议，美标插头",
+      packageImage: "img/G63-package.jpg",
+      productImage: "img/G63.jpg",
+      parameters: {
+        "技术规格": {
+          "品牌": "中性",
+          "产品认证": "CE/FCC/ROHS",
+          "充电协议": "QC3.0",
+          "是否数显": "是",
+          "输出功电流总功率": "23W",
+          "输出电流": "2A",
+          "最大输出功率": "15W",
+          "是否支持快充": "是",
+          "输出功率": "15W"
+        },
+        "物理特性": {
+          "插头标准": "美标",
+          "接口类型": "TYPE-C",
+          "颜色分类": "白色,黑色",
+          "产品尺寸": "11.8*15.1CM"
+        },
+        "包装信息": {
+          "包装尺寸": "18*17*6CM",
+          "装箱个数": "40"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "Z10",
+      name: "磁吸三合一",
+      interface: "USB to C",
+      input: "≥9V/2A，5V/3A",
+      output: "15W/10W/7.5W/5W",
+      price: 31,
+      features: "ABS材料，Qi标准，多输出接口",
+      packageImage: "img/Z10-package.jpg",
+      productImage: "img/Z10.jpg",
+      parameters: {
+        "技术规格": {
+          "无线充电标准": "Qi",
+          "输入接口": "USB to C",
+          "输入电流": "≥9V/2A，5V/3A",
+          "手机输出": "15W/10W/7.5W/5W",
+          "手表输出": "2W",
+          "耳机输出": "5W",
+          "USB-A输出": "5V/2A",
+          "工作频率": "110-205KHz",
+          "充电效率": "≥80％"
+        },
+        "物理特性": {
+          "材质": "ABS材料",
+          "产品重量": "126g",
+          "包装重量": "252g"
+        },
+        "包装信息": {
+          "包装尺寸": "165m*125*102mm",
+          "包装": "3合1无线充电器*1 + USB to C型电缆100cm*1 + 用户手册*1 + 彩盒包装*1"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "G2407",
+      name: "磁吸三合一",
+      interface: "TYPE-C",
+      input: "-",
+      output: "15W",
+      price: 29,
+      features: "PD协议，美标插头，磁吸充电",
+      packageImage: "img/G2407-package.jpg",
+      productImage: "img/G2407.jpg",
+      parameters: {
+        "技术规格": {
+          "品牌": "中性",
+          "产品认证": "CE/FCC/ROHS/QI",
+          "是否数显": "否",
+          "输出功电流总功率": "18W",
+          "最大输出功率": "18W",
+          "是否支持快充": "是",
+          "接口类型": "TYPE-C",
+          "充电协议": "PD",
+          "是否支持磁吸充电": "是",
+          "输出功率": "15W"
+        },
+        "物理特性": {
+          "充电器适用形式": "无线充",
+          "插头标准": "美标",
+          "输出电流": "2A",
+          "颜色分类": "白色,黑色"
+        }
+      }
+    },
+    {
+      series: "桌面无线充",
+      model: "AK09",
+      name: "铝合金三合一无线充(15W)",
+      interface: "-",
+      input: "9V/3A，9V/2A或5V/3A",
+      output: "5W/7.5W/10W/15W",
+      price: 95,
+      features: "金属+硅胶材质，锖色外观，高端设计",
+      packageImage: "img/AK09-package.jpg",
+      productImage: "img/AK09.jpg",
+      parameters: {
+        "技术规格": {
+          "输入电压/电流": "9V/3A,9V/2A或5V/3A",
+          "输出频率": "100-205KHZ",
+          "手机输出功率": "5W/7.5W/10W/15W",
+          "耳机输出功率": "5W(Max)",
+          "手表USB输出功率": "3W(Max)",
+          "充电频率": "110k~210k",
+          "充电距离": "3-5mm",
+          "充电效率": "73%"
+        },
+        "物理特性": {
+          "材质": "金属+硅胶",
+          "可选颜色": "锖色",
+          "产品重量": "裸机191g 毛重:325g",
+          "产品尺寸": "61*90*22.6mm"
+        },
+        "包装信息": {
+          "包装尺寸": "143*134*33mm",
+          "装箱数量": "40pcs/箱",
+          "装箱重量": "14.8KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+中英正反说明书"
+        }
+      }
+    },
+
+    // 车载无线充系列
+    {
+      series: "车载无线充",
+      model: "Q12",
+      name: "车载无线充",
+      interface: "-",
+      input: "直流5V/2A，9V/1.67A",
+      output: "10W兼容7.5W/5W",
+      price: 11,
+      features: "出风口安装，稳定充电，黑色/白色可选",
+      packageImage: "img/Q12-package.jpg",
+      productImage: "img/Q12.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入电压/电流": "直流5V/2A，9V/1.67A",
+          "输出电压/电流": "直流5V/2A，9V/1.2A",
+          "输入功率": "15W(最大功率)",
+          "输出功率": "10W兼容7.5W 5W",
+          "传输距离": "≤8MM",
+          "充电效率": "≥73%"
+        },
+        "物理特性": {
+          "颜色": "黑色、白色",
+          "产品净重": "76g",
+          "产品毛重": "146g",
+          "产品尺寸": "10.5*9.5*5CM"
+        },
+        "包装信息": {
+          "包装尺寸": "14*10*5.5CM",
+          "外箱尺寸": "52*36*30CM",
+          "装箱数量": "60PCS",
+          "装箱重量": "9.37KG",
+          "产品标配": "车载无线充+精美包装+1m/2A充电线+说明书+夹子+3M贴支架"
+        }
+      }
+    },
+    {
+      series: "车载无线充",
+      model: "X16",
+      name: "车载无线充",
+      interface: "-",
+      input: "5V/2A，9V/1.8A",
+      output: "15W/10W/7.5W/5W",
+      price: 12.5,
+      features: "金属材质+ABS塑胶，强磁固定",
+      packageImage: "img/X16-package.jpg",
+      productImage: "img/X16.jpg",
+      parameters: {
+        "技术规格": {
+          "型号": "X16",
+          "输入电压": "5V/2A 9V/1.8A支持 qc2.0/3.0",
+          "输出电压": "5V/1A 9V/1.1A",
+          "工作频率": "100-205KHZ",
+          "发射功率": "15W/10W/7.5W/5W",
+          "最远充电距离": "10MM",
+          "充电效率": "70-85%"
+        },
+        "物理特性": {
+          "材质": "金属材质+ABS塑胶",
+          "产品尺寸": "65mm*100mm*8mm",
+          "产品净重": "78g",
+          "产品毛重": "128g"
+        },
+        "包装信息": {
+          "包装尺寸": "110*75*55mm",
+          "整箱数量": "100pcs",
+          "整箱重量": "12.7kg",
+          "装箱规格": "47*35*39cm",
+          "产品标配": "车载无线充+出风口夹子+精美包装+1m/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "车载无线充",
+      model: "X19",
+      name: "车载无线充",
+      interface: "-",
+      input: "-",
+      output: "普通手机15W/10W/7.5W/5W",
+      price: 12.5,
+      features: "铝合金背壳+ABS塑胶，iPhone12兼容",
+      packageImage: "img/X19-package.jpg",
+      productImage: "img/X19.jpg",
+      parameters: {
+        "技术规格": {
+          "型号": "X19",
+          "功率": "普通手机15W/10W/7.5W/5W iPhone12 7.5W/5W"
+        },
+        "物理特性": {
+          "材料": "铝合金背壳+ABS塑胶",
+          "产品尺寸": "65MM*100MM*8MM",
+          "产品净重": "78g",
+          "产品毛量": "127g(含彩盒配件)"
+        },
+        "包装信息": {
+          "彩盒尺寸": "110MM*75MM*55MM",
+          "卡通箱尺寸": "375MM*220MM*275MM",
+          "装箱方式": "50PCS/箱（5层/箱 2排/层 5PCS/排）",
+          "整箱重量": "6.5kg",
+          "装箱规格": "37.5*22*27.5cm"
+        }
+      }
+    },
+    {
+      series: "车载无线充",
+      model: "S15",
+      name: "车载无线充",
+      interface: "-",
+      input: "5V/2A，9V/2A",
+      output: "15W/10W",
+      price: 9,
+      features: "ABS塑胶材质，紧凑设计",
+      packageImage: "img/S15-package.jpg",
+      productImage: "img/S15.jpg",
+      parameters: {
+        "技术规格": {
+          "型号": "S15",
+          "输入电压": "5V/2A 9V/2A",
+          "输出电压": "5V/1A 9V/1.1A",
+          "工作频率": "110-205KHZ",
+          "发射功率": "15W/10W",
+          "最远充电距离": "10MM",
+          "充电效率": ">75%"
+        },
+        "物理特性": {
+          "材质": "ABS塑胶",
+          "产品尺寸": "110mm*90mm*10mm",
+          "产品净重": "63g",
+          "产品毛重": "119g"
+        },
+        "包装信息": {
+          "包装尺寸": "97*72*113mm",
+          "整箱数量": "100pcs",
+          "整箱重量": "11.9kg",
+          "装箱规格": "47*35*39cm",
+          "产品标配": "车载无线充+精美包装+1m/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "车载无线充",
+      model: "X166",
+      name: "车载无线充",
+      interface: "-",
+      input: "5V/2A，9V/1.8A",
+      output: "15W/10W/7.5W/5W",
+      price: 12.5,
+      features: "金属材质+ABS塑胶，出风口夹子",
+      packageImage: "img/X166-package.jpg",
+      productImage: "img/X166.jpg",
+      parameters: {
+        "技术规格": {
+          "型号": "X166",
+          "输入电压": "5V/2A 9V/1.8A支持 qc2.0/3.0",
+          "输出电压": "5V/1A 9V/1.1A",
+          "工作频率": "100-205KHZ",
+          "发射功率": "15W/10W/7.5W/5W",
+          "最远充电距离": "10MM",
+          "充电效率": "70-85%"
+        },
+        "物理特性": {
+          "材质": "金属材质+ABS塑胶",
+          "产品尺寸": "65mm*100mm*8mm",
+          "产品净重": "78g",
+          "产品毛重": "128g"
+        },
+        "包装信息": {
+          "包装尺寸": "110*75*55mm",
+          "整箱数量": "100pcs",
+          "整箱重量": "12.7kg",
+          "装箱规格": "47*35*39cm",
+          "产品标配": "车载无线充+出风口夹子+精美包装+1m/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "车载无线充",
+      model: "X12",
+      name: "车载无线充",
+      interface: "Type-c",
+      input: "9V/2A",
+      output: "5W/7.5W/10W/15W",
+      price: 29,
+      features: "TPU+铝合金+强磁，高端车载设计",
+      packageImage: "img/X12-package.jpg",
+      productImage: "img/X12.jpg",
+      parameters: {
+        "技术规格": {
+          "型号": "X12车载无线充",
+          "输入电压": "9V/2A",
+          "无线输出": "5W/7.5W/10W/15W",
+          "输出端口": "Type-c"
+        },
+        "物理特性": {
+          "产品颜色": "黑色",
+          "产品材质": "TPU+铝合金+强磁",
+          "产品净重": "105G",
+          "产品毛重": "176G",
+          "产品尺寸": "224.5*59.5*18mm"
+        },
+        "包装信息": {
+          "包装尺寸": "77*43*245mm",
+          "外箱尺寸": "45.7*26*40.8 CM",
+          "装箱数量": "50PCS",
+          "装箱重量": "9.8Kg"
+        }
+      }
+    },
+    {
+      series: "车载无线充",
+      model: "Q4",
+      name: "车载无线充",
+      interface: "-",
+      input: "直流5V/2A，9V/1.67A",
+      output: "10W兼容7.5W/5W",
+      price: 25,
+      features: "大功率设计，黑色外观",
+      packageImage: "img/Q4-package.jpg",
+      productImage: "img/Q4.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入电压/电流": "直流5V/2A，9V/1.67A",
+          "输出电压/电流": "12V/1.5A",
+          "输入功率": "15W(最大功率)",
+          "输出功率": "10W兼容7.5W 5W",
+          "传输距离": "≤8cM",
+          "充电效率": "≥73%"
+        },
+        "物理特性": {
+          "颜色": "黑色",
+          "产品净重": "125g",
+          "产品毛重": "146g",
+          "产品尺寸": "129*82*47"
+        },
+        "包装信息": {
+          "包装尺寸": "14.6*10*8CM",
+          "外箱尺寸": "660*310*295MM",
+          "装箱数量": "50台/箱",
+          "装箱重量": "7.3KG",
+          "产品标配": "车载无线充+精美包装+1m/2A充电线+说明书+夹子"
+        }
+      }
+    },
+    {
+      series: "车载无线充",
+      model: "C16",
+      name: "车载无线充",
+      interface: "-",
+      input: "-",
+      output: "15W",
+      price: 11.5,
+      features: "铝合金背壳+ABS塑胶，紧凑设计",
+      packageImage: "img/C16-package.jpg",
+      productImage: "img/C16.jpg",
+      parameters: {
+        "技术规格": {
+          "型号": "C16",
+          "功率": "15W"
+        },
+        "物理特性": {
+          "材料": "铝合金背壳+ABS塑胶",
+          "产品尺寸": "62MM*95MM*9.5MM",
+          "产品净重": "78g",
+          "产品毛量": "127g(含配件)"
+        },
+        "包装信息": {
+          "卡通箱尺寸": "375MM*220MM*275MM",
+          "装箱方式": "50PCS/箱（5层/箱 2排/层 5PCS/排）",
+          "整箱重量": "6.5kg",
+          "装箱规格": "37.5*22*27.5cm"
+        }
+      }
+    },
+
+    // 圆盘无线充系列
+    {
+      series: "圆盘无线充",
+      model: "K8",
+      name: "无线充电器(15W)",
+      interface: "-",
+      input: "5V/2A",
+      output: "9V/1.2A",
+      price: 9,
+      features: "经典圆盘设计，ABS材质，黑白两色",
+      packageImage: "img/K8-package.jpg",
+      productImage: "img/K8.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "5V/2A",
+          "输出": "9V 1.2A",
+          "传输距离": "≤8mm",
+          "充电效率": "＞73%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "产品尺寸": "101*8mm",
+          "产品净重": "52g",
+          "产品毛重": "96.5g",
+          "颜色": "黑白两色(镭雕定制)，可定制其他颜色"
+        },
+        "包装信息": {
+          "包装尺寸": "10.6*16*2.4cm",
+          "外箱尺寸": "63*28.5*23cm",
+          "装箱数量": "100PCS",
+          "装箱重量": "9.8KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "圆盘无线充",
+      model: "K9",
+      name: "无线充电器(15W)",
+      interface: "-",
+      input: "5V/2A",
+      output: "9V/1.67A",
+      price: 3.2,
+      features: "超薄设计，高性价比，ABS/亚克力/硅胶材质",
+      packageImage: "img/K9-package.jpg",
+      productImage: "img/K9.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "5V/2A",
+          "输出": "9V 1.67A",
+          "传输距离": "≤10mm",
+          "充电效率": "＞75%"
+        },
+        "物理特性": {
+          "材质": "ABS/亚克力/硅胶",
+          "产品尺寸": "97*0.8mm",
+          "产品净重": "42g",
+          "产品毛重": "72g",
+          "颜色": "黑白两色(镭雕定制)，可定制其他颜色"
+        },
+        "包装信息": {
+          "包装尺寸": "10.6*16*2.4cm",
+          "外箱尺寸": "63*28.5*23cm",
+          "装箱数量": "100PCS",
+          "装箱重量": "7.2KG",
+          "产品标配": "无线充电器+精美包装+0.5M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "圆盘无线充",
+      model: "K3",
+      name: "无线充电器(16W)",
+      interface: "-",
+      input: "3V/2A",
+      output: "9V/1.3A",
+      price: 12,
+      features: "升级功率版本，ABS材质",
+      packageImage: "img/K3-package.jpg",
+      productImage: "img/K3.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "3V/2A",
+          "输出": "9V 1.3A",
+          "传输距离": "≤8mm",
+          "充电效率": "＞74%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "产品尺寸": "90*5mm",
+          "产品净重": "42g",
+          "产品毛重": "77g",
+          "颜色": "黑白两色(镭雕定制)，可定制其他颜色"
+        },
+        "包装信息": {
+          "包装尺寸": "10.6*16*2.5cm",
+          "外箱尺寸": "63*28.5*24cm",
+          "装箱数量": "100PCS",
+          "装箱重量": "7.7KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "圆盘无线充",
+      model: "X8",
+      name: "无线充电器(16W)",
+      interface: "-",
+      input: "5V/2A",
+      output: "9V/1.2A",
+      price: 12.5,
+      features: "圆盘设计，ABS材质，高效充电",
+      packageImage: "img/X8-package.jpg",
+      productImage: "img/X8.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "5V/2A",
+          "输出": "9V 1.2A",
+          "传输距离": "≤8mm",
+          "充电效率": "＞73%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "产品尺寸": "101*8mm",
+          "产品净重": "50g",
+          "产品毛重": "85g",
+          "颜色": "黑白两色(镭雕定制)，可定制其他颜色"
+        },
+        "包装信息": {
+          "包装尺寸": "10.6*16*2.4cm",
+          "外箱尺寸": "63*28.5*23cm",
+          "装箱数量": "100PCS",
+          "装箱重量": "8.5KG",
+          "产品标配": "无线充电器+精美包装+1M/3A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "圆盘无线充",
+      model: "K6",
+      name: "无线充电器(17W)",
+      interface: "-",
+      input: "5V/2A",
+      output: "9V/1.4A",
+      price: 8,
+      features: "高功率输出，ABS材质",
+      packageImage: "img/K6-package.jpg",
+      productImage: "img/K6.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "5V/2A",
+          "输出": "9V 1.4A",
+          "传输距离": "≤8mm",
+          "充电效率": "＞73%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "产品尺寸": "101*10mm",
+          "产品净重": "45g",
+          "产品毛重": "79g",
+          "颜色": "黑白两色(镭雕定制)，可定制其他颜色"
+        },
+        "包装信息": {
+          "包装尺寸": "10.6*16*2.4cm",
+          "外箱尺寸": "63*28.5*23cm",
+          "装箱数量": "100PCS",
+          "装箱重量": "7.9KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "圆盘无线充",
+      model: "Y8",
+      name: "无线充电器(17W)",
+      interface: "-",
+      input: "5V/2A",
+      output: "9V/1.4A",
+      price: 9,
+      features: "高效充电，ABS材质，黑白两色",
+      packageImage: "img/Y8-package.jpg",
+      productImage: "img/Y8.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "5V/2A",
+          "输出": "9V 1.4A",
+          "传输距离": "≤8mm",
+          "充电效率": "＞75%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "产品尺寸": "101*8mm",
+          "产品净重": "49g",
+          "产品毛重": "84g",
+          "颜色": "黑白两色(镭雕定制)，可定制其他颜色"
+        },
+        "包装信息": {
+          "包装尺寸": "10.6*16*2.4cm",
+          "外箱尺寸": "63*28.5*23cm",
+          "装箱数量": "100PCS",
+          "装箱重量": "8.4KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "圆盘无线充",
+      model: "U8",
+      name: "无线充电器",
+      interface: "-",
+      input: "5V/2A",
+      output: "10W",
+      price: 9.5,
+      features: "木纹外观，高效充电，ABS材质",
+      packageImage: "img/U8-package.jpg",
+      productImage: "img/U8.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "5V/2A",
+          "输出": "10W",
+          "传输距离": "≤8mm",
+          "充电效率": "＞85%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "产品颜色": "木纹",
+          "产品尺寸": "102*8mm",
+          "产品净重": "52g",
+          "产品毛重": "87g"
+        },
+        "包装信息": {
+          "包装尺寸": "10.6*16*2.4cm",
+          "外箱尺寸": "63*28.5*23cm",
+          "装箱数量": "100PCS",
+          "装箱重量": "8.7KG",
+          "产品标配": "无线充电器+精美包装+1M/2A充电线+说明书"
+        }
+      }
+    },
+    {
+      series: "圆盘无线充",
+      model: "X9",
+      name: "无线充电器",
+      interface: "-",
+      input: "5V/2A",
+      output: "9V/1.2A",
+      price: 9.5,
+      features: "圆盘设计，ABS材质，黑白两色",
+      packageImage: "img/X9-package.jpg",
+      productImage: "img/X9.jpg",
+      parameters: {
+        "技术规格": {
+          "产品标准": "符合QI协议",
+          "输入": "5V/2A",
+          "输出": "9V 1.2A",
+          "传输距离": "≤8mm",
+          "充电效率": "＞73%"
+        },
+        "物理特性": {
+          "材质": "ABS",
+          "产品尺寸": "101*8mm",
+          "产品净重": "49g",
+          "产品毛重": "85g",
+          "颜色": "黑白两色(镭雕定制)，可定制其他颜色"
+        },
+        "包装信息": {
+          "包装尺寸": "10.6*16*2.4cm",
+          "外箱尺寸": "63*28.5*23cm",
+          "装箱数量": "100PCS",
+          "装箱重量": "8.5KG",
+          "产品标配": "无线充电器+精美包装+1M/3A充电线+说明书"
+        }
+      }
+    }
+  ];
+
+  // 全局变量
+  let currentDisplayData = [...products];
+  let currentSort = { column: null, direction: 'asc' };
+
+  // DOM 加载完成后初始化
+  document.addEventListener('DOMContentLoaded', function() {
+    renderTable(currentDisplayData);
+    setupEventListeners();
+    updateFilterInfo();
+  });
+
+  // 渲染表格
+  function renderTable(data) {
+    const tableBody = document.getElementById('tableBody');
+
+    if (data.length === 0) {
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="8">
+            <div class="empty-state">
+              <i class="fas fa-search"></i>
+              <h3>未找到匹配的产品</h3>
+              <p>请尝试调整搜索条件或筛选条件</p>
+            </div>
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tableBody.innerHTML = '';
+
+    data.forEach((product, index) => {
+      const packageImageUrl = product.packageImage || 'assets/images/default-package.jpg';
+      const productImageUrl = product.productImage || 'assets/images/default-product.jpg';
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td><span class="tag tag-${getTagClass(product.series)}">${product.series}</span></td>
+        <td class="product-model">${product.model || '-'}</td>
+        <td>${product.interface || '-'}</td>
+        <td>${product.input || '-'}</td>
+        <td>${product.output || '-'}</td>
+        <td class="price">¥${product.price || '-'}</td>
+        <td>
+          <button class="params-toggle" data-index="${index}">
+            <i class="fas fa-info-circle"></i>
+            查看参数
+          </button>
+          <div class="params-details" id="params-${index}">
+            ${renderParameters(product.parameters)}
+          </div>
+        </td>
+        <td>
+          <div class="image-container">
+            <div class="image-item">
+              <img src="${packageImageUrl}" alt="包装图" class="image-preview" data-src="${packageImageUrl}" data-title="包装图 - ${product.model}">
+              <div class="image-caption">包装图</div>
+            </div>
+            <div class="image-item">
+              <img src="${productImageUrl}" alt="产品示例图" class="image-preview" data-src="${productImageUrl}" data-title="产品示例图 - ${product.model}">
+              <div class="image-caption">产品示例图</div>
+            </div>
+          </div>
+        </td>
+      `;
+
+      tableBody.appendChild(row);
+    });
+
+    // 绑定参数展开事件
+    document.querySelectorAll('.params-toggle').forEach(button => {
+      button.addEventListener('click', function() {
+        const index = this.getAttribute('data-index');
+        const details = document.getElementById(`params-${index}`);
+        const icon = this.querySelector('i');
+
+        if (details.classList.contains('active')) {
+          details.classList.remove('active');
+          icon.className = 'fas fa-info-circle';
+          this.innerHTML = `<i class="fas fa-info-circle"></i> 查看参数`;
+        } else {
+          details.classList.add('active');
+          icon.className = 'fas fa-chevron-up';
+          this.innerHTML = `<i class="fas fa-chevron-up"></i> 收起参数`;
+        }
+      });
+    });
+
+    // 绑定图片点击事件
+    document.querySelectorAll('.image-preview').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+
+        modalImg.src = img.dataset.src;
+        modalTitle.textContent = img.dataset.title;
+        modal.style.display = 'block';
+      });
+    });
+  }
+
+  // 渲染参数详情
+  function renderParameters(parameters) {
+    if (!parameters) return '<p>暂无详细参数</p>';
+
+    let html = '<div class="params-grid">';
+
+    for (const [category, params] of Object.entries(parameters)) {
+      const icon = getCategoryIcon(category);
+      html += `
+        <div class="param-group">
+          <h4>${icon} ${category}</h4>
+          ${Object.entries(params).map(([key, value]) => `
+            <div class="param-item">
+              <span class="param-name">${key}</span>
+              <span class="param-value">${value}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    html += '</div>';
+    return html;
+  }
+
+  // 获取分类图标
+  function getCategoryIcon(category) {
+    const icons = {
+      '技术规格': 'fas fa-microchip',
+      '物理特性': 'fas fa-ruler-combined',
+      '包装信息': 'fas fa-box',
+      '电气参数': 'fas fa-bolt',
+      '认证信息': 'fas fa-certificate'
+    };
+    return `<i class="${icons[category] || 'fas fa-info'}"></i>`;
+  }
+
+  // 获取标签类名
+  function getTagClass(series) {
+    if (series.includes('磁吸')) return 'magnetic';
+    if (series.includes('桌面')) return 'desktop';
+    if (series.includes('车载')) return 'car';
+    if (series.includes('圆盘')) return 'disc';
+    return 'magnetic';
+  }
+
+  // 设置事件监听器
+  function setupEventListeners() {
+    // 搜索功能
+    document.getElementById('searchBtn').addEventListener('click', filterTable);
+    document.getElementById('searchInput').addEventListener('input', filterTable);
+
+    // 筛选功能
+    document.getElementById('seriesFilter').addEventListener('change', filterTable);
+    document.getElementById('priceFilter').addEventListener('change', filterTable);
+
+    // 重置筛选
+    document.getElementById('resetBtn').addEventListener('click', resetFilters);
+
+    // 清除筛选按钮
+    document.getElementById('clearFiltersBtn').addEventListener('click', resetFilters);
+
+    // 保存数据按钮
+    document.getElementById('saveDataBtn').addEventListener('click', saveData);
+
+    // 下载Excel功能
+    document.getElementById('downloadBtn').addEventListener('click', downloadExcel);
+
+    // 关闭模态框
+    document.querySelector('.close').addEventListener('click', function() {
+      document.getElementById('imageModal').style.display = 'none';
+    });
+
+    // 点击模态框外部关闭
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('imageModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // 排序功能
+    setupSorting();
+  }
+
+  // 设置排序功能
+  function setupSorting() {
+    document.querySelectorAll('th[data-sort]').forEach(header => {
+      header.addEventListener('click', function() {
+        const column = this.getAttribute('data-sort');
+
+        if (currentSort.column === column) {
+          currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+        } else {
+          currentSort.column = column;
+          currentSort.direction = 'asc';
+        }
+
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+          th.classList.remove('sort-asc', 'sort-desc');
+        });
+        this.classList.add(`sort-${currentSort.direction}`);
+
+        // 对当前显示的数据进行排序
+        const sortedData = [...currentDisplayData].sort((a, b) => {
+          let aValue = a[column];
+          let bValue = b[column];
+
+          if (column === 'price') {
+            aValue = parseFloat(aValue) || 0;
+            bValue = parseFloat(bValue) || 0;
+          } else {
+            aValue = aValue || '';
+            bValue = bValue || '';
+          }
+
+          if (aValue < bValue) return currentSort.direction === 'asc' ? -1 : 1;
+          if (aValue > bValue) return currentSort.direction === 'asc' ? 1 : -1;
+          return 0;
+        });
+
+        renderTable(sortedData);
+      });
+    });
+  }
+
+  // 筛选表格数据
+  function filterTable() {
+    const searchText = document.getElementById('searchInput').value.toLowerCase();
+    const seriesFilter = document.getElementById('seriesFilter').value;
+    const priceFilter = document.getElementById('priceFilter').value;
+
+    // 先筛选数据
+    const filteredData = products.filter(product => {
+      const matchesSearch = !searchText ||
+        product.name?.toLowerCase().includes(searchText) ||
+        (product.model && product.model.toLowerCase().includes(searchText)) ||
+        product.features.toLowerCase().includes(searchText);
+
+      const matchesSeries = !seriesFilter || product.series.includes(seriesFilter);
+
+      let matchesPrice = true;
+      if (priceFilter && product.price) {
+        switch (priceFilter) {
+          case '0-10':
+            matchesPrice = product.price <= 10;
+            break;
+          case '10-20':
+            matchesPrice = product.price > 10 && product.price <= 20;
+            break;
+          case '20-50':
+            matchesPrice = product.price > 20 && product.price <= 50;
+            break;
+          case '50-100':
+            matchesPrice = product.price > 50 && product.price <= 100;
+            break;
+          case '100+':
+            matchesPrice = product.price > 100;
+            break;
+        }
+      }
+
+      return matchesSearch && matchesSeries && matchesPrice;
+    });
+
+    // 更新当前显示的数据
+    currentDisplayData = [...filteredData];
+
+    // 如果有排序，则应用排序
+    if (currentSort.column) {
+      const sortedData = [...currentDisplayData].sort((a, b) => {
+        let aValue = a[currentSort.column];
+        let bValue = b[currentSort.column];
+
+        if (currentSort.column === 'price') {
+          aValue = parseFloat(aValue) || 0;
+          bValue = parseFloat(bValue) || 0;
+        } else {
+          aValue = aValue || '';
+          bValue = bValue || '';
+        }
+
+        if (aValue < bValue) return currentSort.direction === 'asc' ? -1 : 1;
+        if (aValue > bValue) return currentSort.direction === 'asc' ? 1 : -1;
+        return 0;
+      });
+
+      renderTable(sortedData);
+    } else {
+      renderTable(currentDisplayData);
+    }
+
+    updateFilterInfo();
+  }
+
+  // 重置筛选
+  function resetFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('seriesFilter').value = '';
+    document.getElementById('priceFilter').value = '';
+
+    // 重置排序状态
+    currentSort = { column: null, direction: 'asc' };
+    document.querySelectorAll('th[data-sort]').forEach(th => {
+      th.classList.remove('sort-asc', 'sort-desc');
+    });
+
+    currentDisplayData = [...products];
+    renderTable(currentDisplayData);
+    updateFilterInfo();
+  }
+
+  // 更新筛选信息提示
+  function updateFilterInfo() {
+    const filterInfo = document.getElementById('filterInfo');
+    const filterText = document.getElementById('filterText');
+
+    const searchText = document.getElementById('searchInput').value;
+    const seriesFilter = document.getElementById('seriesFilter').value;
+    const priceFilter = document.getElementById('priceFilter').value;
+
+    let infoText = `显示 ${currentDisplayData.length} 个产品`;
+    let hasFilter = false;
+
+    if (searchText || seriesFilter || priceFilter) {
+      hasFilter = true;
+      infoText += '（已应用筛选条件：';
+
+      const filters = [];
+      if (searchText) filters.push(`搜索"${searchText}"`);
+      if (seriesFilter) filters.push(`系列"${seriesFilter}"`);
+      if (priceFilter) {
+        const priceText = {
+          '0-10': '0-10元',
+          '10-20': '10-20元',
+          '20-50': '20-50元',
+          '50-100': '50-100元',
+          '100+': '100元以上'
+        }[priceFilter];
+        filters.push(`价格${priceText}`);
+      }
+
+      infoText += filters.join('，') + '）';
+    }
+
+    filterText.textContent = infoText;
+    filterInfo.style.display = hasFilter ? 'flex' : 'none';
+  }
+
+  // 保存数据
+  function saveData() {
+    localStorage.setItem('dream_product_data', JSON.stringify(products));
+    showNotification('数据已保存到浏览器本地存储！', 'success');
+  }
+
+  // 下载Excel
+  function downloadExcel() {
+    let csvContent = "产品系列,产品型号,接口类型,输入参数,输出功率,价格(元),关键特性\n";
+
+    products.forEach(product => {
+      const row = [
+        product.series,
+        product.model || '-',
+        product.interface,
+        product.input,
+        product.output,
+        product.price,
+        product.features
+      ].map(field => `"${field}"`).join(',');
+
+      csvContent += row + '\n';
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.setAttribute('href', url);
+    link.setAttribute('download', '傲拓产品表.csv');
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    showNotification('Excel文件下载成功！', 'success');
+  }
+
+  // 显示通知
+  function showNotification(message, type = 'info') {
+    // 在实际项目中，可以使用更完善的通知库
+    alert(message);
+  }
+</script>
+<!-- 在</body>标签前添加 -->
+<div id="share-float-btn" style="position: fixed; bottom: 20px; right: 20px; background: #1890ff; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; font-size: 20px;">
+  🔗
+</div>
+
+<div id="share-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; align-items: center; justify-content: center;">
+  <div style="background: white; padding: 20px; border-radius: 10px; max-width: 400px; width: 90%;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <h3 style="margin: 0;">分享链接</h3>
+      <button onclick="closeShareModal()" style="background: none; border: none; font-size: 20px; cursor: pointer;">×</button>
+    </div>
+    <div style="word-break: break-all; background: #f5f5f5; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px;">
+      https://radia-crackless-noncyclically.ngrok-free.dev
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <button onclick="copyShareUrl()" style="padding: 10px 15px; background: #1890ff; color: white; border: none; border-radius: 5px; cursor: pointer; flex: 1;">复制链接</button>
+      <button onclick="shareToWechat()" style="padding: 10px 15px; background: #07c160; color: white; border: none; border-radius: 5px; cursor: pointer; flex: 1;">微信分享</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 悬浮按钮功能
+  document.getElementById('share-float-btn').addEventListener('click', function() {
+    document.getElementById('share-modal').style.display = 'flex';
+  });
+
+  function closeShareModal() {
+    document.getElementById('share-modal').style.display = 'none';
+  }
+
+  function copyShareUrl() {
+    const url = "https://radia-crackless-noncyclically.ngrok-free.dev";
+    navigator.clipboard.writeText(url).then(function() {
+      alert('✅ 链接已复制！');
+      closeShareModal();
+    }).catch(function() {
+      const textArea = document.createElement('textarea');
+      textArea.value = url;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      alert('✅ 链接已复制！');
+      closeShareModal();
+    });
+  }
+
+  function shareToWechat() {
+    const url = "https://radia-crackless-noncyclically.ngrok-free.dev";
+    alert('📱 微信分享：\n\n复制以下链接发送给好友：\n' + url);
+    closeShareModal();
+  }
+</script>
+</body>
+</html>
