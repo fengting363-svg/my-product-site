@@ -637,6 +637,139 @@
       text-decoration: underline;
       font-size: 13px;
     }
+    /* 添加价格预览相关样式 */
+    .price-preview-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: var(--transition);
+      margin-top: 5px;
+    }
+
+    .price-preview-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    .price-preview-modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .price-preview-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .price-preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .price-preview-header h3 {
+      margin: 0;
+      color: var(--primary-color);
+    }
+
+    .price-preview-close {
+      color: var(--gray-color);
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .price-preview-close:hover {
+      color: var(--dark-color);
+    }
+
+    .price-tier-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .price-tier-table th,
+    .price-tier-table td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .price-tier-table th {
+      background-color: #f0f4f8;
+      font-weight: 600;
+    }
+
+    .price-tier-table tr:hover {
+      background-color: #f8fafc;
+    }
+
+    .quantity-input {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      gap: 10px;
+    }
+
+    .quantity-input input {
+      width: 80px;
+      padding: 8px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .calculate-btn {
+      background: var(--success-color);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .calculate-btn:hover {
+      background: #218838;
+    }
+
+    .result-container {
+      margin-top: 15px;
+      padding: 15px;
+      background: #e8f4fd;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .result-container.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -2331,26 +2464,47 @@
       }
     }
   ];
+  // 为产品添加价格区间数据
+  function addPriceTiersToProducts() {
+    products.forEach(product => {
+      // 根据产品价格设置不同的价格区间
+      const basePrice = product.price;
 
+// 新的价格策略：
+      // 1-99个：按原价销售
+      // 100-499个：每个少1元
+      // 500-999个：每个少2元
+      // 1000-4999个：每个少3元
+      // 5000个以上：每个少4元
+      product.priceTiers = [
+        { minQty: 1, maxQty: 99, price: basePrice },
+        { minQty: 100, maxQty: 499, price: Math.max(0, basePrice - 1).toFixed(2) },
+        { minQty: 500, maxQty: 999, price: Math.max(0, basePrice - 2).toFixed(2) },
+        { minQty: 1000, maxQty: 4999, price: Math.max(0, basePrice - 3).toFixed(2) },
+        { minQty: 5000, maxQty: Infinity, price: Math.max(0, basePrice - 4).toFixed(2) }
+      ];
+    });
+  }
   // 全局变量
   let currentDisplayData = [...products];
   let currentSort = { column: null, direction: 'asc' };
 
   // DOM 加载完成后初始化
   document.addEventListener('DOMContentLoaded', function() {
+    addPriceTiersToProducts(); // 添加这行来初始化价格区间
+    createPricePreviewModal(); // 添加这行来创建价格预览模态框
     renderTable(currentDisplayData);
     setupEventListeners();
     updateFilterInfo();
   });
 
-  // 渲染表格
+  // 修改渲染表格函数，添加价格预览按钮
   function renderTable(data) {
     const tableBody = document.getElementById('tableBody');
 
     if (data.length === 0) {
-      tableBody.innerHTML = `
-        <tr>
-          <td colspan="8">
+      tableBody.innerHTML = `        <tr>
+          <td colspan="9">
             <div class="empty-state">
               <i class="fas fa-search"></i>
               <h3>未找到匹配的产品</h3>
@@ -2369,8 +2523,7 @@
       const productImageUrl = product.productImage || 'assets/images/default-product.jpg';
 
       const row = document.createElement('tr');
-      row.innerHTML = `
-        <td><span class="tag tag-${getTagClass(product.series)}">${product.series}</span></td>
+      row.innerHTML = `        <td><span class="tag tag-${getTagClass(product.series)}">${product.series}</span></td>
         <td class="product-model">${product.model || '-'}</td>
         <td>${product.interface || '-'}</td>
         <td>${product.input || '-'}</td>
@@ -2382,8 +2535,10 @@
             查看参数
           </button>
           <div class="params-details" id="params-${index}">
-            ${renderParameters(product.parameters)}
-          </div>
+            ${renderParameters(product.parameters)}          </div>
+          <button class="price-preview-btn" data-product-id="${index}">
+            <i class="fas fa-tags"></i> 价格预览
+          </button>
         </td>
         <td>
           <div class="image-container">
@@ -2421,6 +2576,14 @@
       });
     });
 
+    // 绑定价格预览按钮事件
+    document.querySelectorAll('.price-preview-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = this.getAttribute('data-product-id');
+        showPricePreview(productId);
+      });
+    });
+
     // 绑定图片点击事件
     document.querySelectorAll('.image-preview').forEach(img => {
       img.addEventListener('click', () => {
@@ -2433,6 +2596,123 @@
         modal.style.display = 'block';
       });
     });
+  }
+  // 创建价格预览模态框
+  function createPricePreviewModal() {
+    // 检查模态框是否已经存在，避免重复创建
+    if (document.getElementById('pricePreviewModal')) {
+      return;
+    }
+    const modal = document.createElement('div');
+    modal.id = 'pricePreviewModal';
+    modal.className = 'price-preview-modal';
+    modal.innerHTML = `      <div class="price-preview-content">
+        <div class="price-preview-header">
+          <h3><i class="fas fa-tags"></i> 价格预览</h3>
+          <button class="price-preview-close">&times;</button>
+        </div>
+        <div id="pricePreviewContent"></div>
+        <div class="quantity-input">
+          <label for="quantityInput">输入购买数量:</label>
+          <input type="number" id="quantityInput" min="1" value="1">
+          <button class="calculate-btn" id="calculateBtn">计算价格</button>
+        </div>
+        <div id="resultContainer" class="result-container">
+          <h4>价格计算结果</h4>
+          <p>购买数量: <span id="resultQuantity"></span> 件</p>
+          <p>单价: ¥<span id="resultUnitPrice"></span></p>
+          <p>总价: ¥<span id="resultTotalPrice"></span></p>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    // 绑定关闭事件
+    document.querySelector('.price-preview-close').addEventListener('click', function() {
+      document.getElementById('pricePreviewModal').style.display = 'none';
+    });
+
+    // 点击模态框外部关闭
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('pricePreviewModal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // 绑定计算按钮事件
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+      const quantity = parseInt(document.getElementById('quantityInput').value);
+      if (isNaN(quantity) || quantity <= 0) {
+        alert('请输入有效的购买数量');
+        return;
+      }
+
+      const productId = document.getElementById('pricePreviewModal').dataset.productId;
+      calculatePrice(productId, quantity);
+    });
+  }
+  // 显示价格预览
+  function showPricePreview(productId) {
+    const product = currentDisplayData[productId];
+    if (!product || !product.priceTiers) return;
+
+    const modal = document.getElementById('pricePreviewModal');
+    modal.dataset.productId = productId;
+
+    let html = `      <h4>${product.series} - ${product.model}</h4>
+      <table class="price-tier-table">
+        <thead>
+          <tr>
+            <th>购买数量</th>
+            <th>单价(元)</th>
+            <th>总价(元)</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    product.priceTiers.forEach(tier => {
+      const maxQtyText = tier.maxQty === Infinity ? "及以上" : `-${tier.maxQty}`;
+      const totalPrice = (tier.price * tier.minQty).toFixed(2);
+      html += `        <tr>
+          <td>${tier.minQty}${maxQtyText} 件</td>
+          <td>¥${tier.price}</td>
+          <td>¥${totalPrice}</td>
+        </tr>
+      `;
+    });
+
+    html += `        </tbody>
+      </table>
+    `;
+
+    document.getElementById('pricePreviewContent').innerHTML = html;
+    document.getElementById('quantityInput').value = '1';
+    document.getElementById('resultContainer').classList.remove('show');
+    modal.style.display = 'block';
+  }
+
+  // 计算价格
+  function calculatePrice(productId, quantity) {
+    const product = currentDisplayData[productId];
+    if (!product || !product.priceTiers) return;
+
+    // 查找匹配的价格区间
+    let unitPrice = product.price;
+    for (const tier of product.priceTiers) {
+      if (quantity >= tier.minQty && (tier.maxQty === Infinity || quantity <= tier.maxQty)) {
+        unitPrice = parseFloat(tier.price);
+        break;
+      }
+    }
+
+    const totalPrice = (unitPrice * quantity).toFixed(2);
+
+    // 显示结果
+    document.getElementById('resultQuantity').textContent = quantity;
+    document.getElementById('resultUnitPrice').textContent = unitPrice.toFixed(2);
+    document.getElementById('resultTotalPrice').textContent = totalPrice;
+    document.getElementById('resultContainer').classList.add('show');
   }
 
   // 渲染参数详情
